@@ -33,7 +33,21 @@
 
 Визуальная полировка: Всплывающий урон при попаданиях, динамические трессеры пуль, следы крови, анимации смерти противников и система мульти-киллов (Double Kill, Rampage, Godlike).
 Версия 0.41 - Убраны эмодзи из сообщений: Double Kill, Triple Kill, Godlike, Rampage
-" if(multiKillCount==2){triggerStreakAnim('DOUBLE KILL');style+=50;tn(400,900,.2,.3,'square')}
-else if(multiKillCount==3){triggerStreakAnim('TRIPLE KILL');style+=80;tn(500,1100,.25,.35,'square')}
-else if(multiKillCount==4){triggerStreakAnim('RAMPAGE');style+=120;tn(600,1300,.3,.4,'square')}
-else if(multiKillCount>=5){triggerStreakAnim('GODLIKE');style+=200;tn(800,1600,.4,.5,'square')} "
+```javascript
+if (multiKillCount == 2) {
+    triggerStreakAnim('DOUBLE KILL');
+    style += 50;
+    tn(400, 900, .2, .3, 'square');
+} else if (multiKillCount == 3) {
+    triggerStreakAnim('TRIPLE KILL');
+    style += 80;
+    tn(500, 1100, .25, .35, 'square');
+} else if (multiKillCount == 4) {
+    triggerStreakAnim('RAMPAGE');
+    style += 120;
+    tn(600, 1300, .3, .4, 'square');
+} else if (multiKillCount >= 5) {
+    triggerStreakAnim('GODLIKE');
+    style += 200;
+    tn(800, 1600, .4, .5, 'square');
+}
