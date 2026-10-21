@@ -169,10 +169,10 @@ function dmgE(e,a,head,pt,src,isNoScope,isAir){if(e.dead)return;if(e.ar)a*=head?
 if(e.hp<=0){e.dead=1;kills++;streak++;P.st.bs=Math.max(P.st.bs,streak);
 const now=performance.now();if(now-lastKillTime<=5000){multiKillCount++;}else{multiKillCount=1;}
 lastKillTime=now;
-if(multiKillCount==2){triggerStreakAnim('DOUBLE KILL ⚡');style+=50;tn(400,900,.2,.3,'square')}
-else if(multiKillCount==3){triggerStreakAnim('TRIPLE KILL 🔥');style+=80;tn(500,1100,.25,.35,'square')}
-else if(multiKillCount==4){triggerStreakAnim('RAMPAGE 💀');style+=120;tn(600,1300,.3,.4,'square')}
-else if(multiKillCount>=5){triggerStreakAnim('GODLIKE 👑✨');style+=200;tn(800,1600,.4,.5,'square')}
+if(multiKillCount==2){triggerStreakAnim('DOUBLE KILL');style+=50;tn(400,900,.2,.3,'square')}
+else if(multiKillCount==3){triggerStreakAnim('TRIPLE KILL');style+=80;tn(500,1100,.25,.35,'square')}
+else if(multiKillCount==4){triggerStreakAnim('RAMPAGE');style+=120;tn(600,1300,.3,.4,'square')}
+else if(multiKillCount>=5){triggerStreakAnim('GODLIKE');style+=200;tn(800,1600,.4,.5,'square')}
 const wn=src||W[P.cw].n,dist=Math.hypot(P.x-e.x,P.z-e.z);P.st.wk[wn]=(P.st.wk[wn]||0)+1;let b=35,t=[];if(!P.ground){b+=20;t.push('AIR-KILL')}if(isNoScope){b+=40;t.push('NO-SCOPE')}if(P.slide>0){b+=15;t.push('SLIDE KILL')}if(head){b+=15;t.push('HEADSHOT')}if(dist>25){b+=10;t.push('LONG RANGE')}
 style=Math.min(400,style+b);score+=(100+t.length*50)*(rk()+1);kt(t.join(' + ')||'KILL');P.hmk=1;S.kill();const mn=ET[e.t].mn*(src?1:(W[P.cw].mm||1))|0;P.money=Math.min(16000,P.money+mn);P.st.m+=mn;P.st.k++;if(head)P.st.hs++;feed('YOU ➜ '+wn+' ➜ '+ET[e.t].n+(head?' ⌖':'')+(isNoScope?' [NO-SCOPE]':'')+(isAir?' [AIR-KILL]':'')+' · '+Math.round(dist)+'m +$'+mn);fx(pt,0xff1030,45,9,.9);fx(pt,e.c,25,8,.7);mkCorpse(e,pt);flashL(pt,e.c,3);enemies.splice(enemies.indexOf(e),1)}}
 function shoot(e,sp,rad,dm,col,sa,y){const m=new THREE.Mesh(new THREE.SphereGeometry(rad,6,6),new THREE.MeshBasicMaterial({color:col}));m.position.set(e.x,(y||1.3)+e.y,e.z);const v=new V3(P.x-e.x,P.y+1.2-m.position.y,P.z-e.z).normalize().multiplyScalar(sp);if(sa)v.applyAxisAngle(new V3(0,1,0),sa);scene.add(m);projs.push({m,v,l:5,ox:e.x,oz:e.z,dm,src:ET[e.t].n,big:rad>.4});S.es()}
