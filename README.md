@@ -1,6 +1,6 @@
 # neonkill - простая игра на html вдохновленная cs2 и ultrakill
 
-> **Поиграть:** https://s4fn.github.io/s4fn/NEON_KILL_0.6.html
+> **Поиграть:** https://s4fn.github.io/neonkill/NEON_KILL_0.6.html
 
 ---
 
